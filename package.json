@@ -1,0 +1,40 @@
+{
+  "name": "calendar",
+  "version": "0.0.0",
+  "description": "Calendar for React app",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Prinz",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@types/classnames": "^2.2.6",
+    "@types/node": "^10.12.5",
+    "@types/react": "^16.7.3",
+    "@types/react-dom": "^16.0.9",
+    "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
+    "css-loader": "^1.0.1",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.10.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.6.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "typescript": "^3.1.6",
+    "typings-for-scss-modules-loader": "^1.5.1",
+    "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

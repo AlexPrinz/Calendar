@@ -1,0 +1,25 @@
+
+
+.nextAndPreview{
+  text-shadow: 1px 1px 4px #000000;
+  color: white !important;
+}
+
+.headerImage{
+  height: 24vh;
+  position: relative;
+  background: url("/css/images/august.jpg") no-repeat center center;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  transition: background-image 0.8s;
+}
+
+
+.nextAndPreviewDiv{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}

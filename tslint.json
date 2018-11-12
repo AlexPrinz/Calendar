@@ -1,0 +1,59 @@
+{
+    "extends": "tslint-config-airbnb",
+    "rulesDirectory": [],
+    "rules": {
+        "no-debugger": true,
+        "max-line-length": {
+            "options": [100]
+        },
+        "one-variable-per-declaration": false,
+        "no-duplicate-variable": [true, "check-parameters"],
+        "no-empty": true,
+        "no-for-in-array": true,
+        "switch-default": true,
+        "class-name": true,
+        "match-default-export-name": true,
+        "no-irregular-whitespace": true,
+        "ordered-imports": true,
+        "new-parens": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false,
+        "no-unsafe-any": true,
+        "no-console": {
+            "severity": "warning",
+            "options": [
+                "debug",
+                "info",
+                "log",
+                "time",
+                "timeEnd",
+                "trace"
+            ]
+        },
+        "import-name": false,
+        "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"],
+        "function-name": [true, {
+            "method-regex": "^[a-z][\\w\\d]+$",
+            "private-method-regex": "^(_|[a-z])?[a-z][\\w\\d]+$",
+            "protected-method-regex": "^(_|[a-z])?[a-z][\\w\\d]+$",
+            "static-method-regex": "^[A-Z_\\d]+$",
+            "function-regex": "^[a-z][\\w\\d]+$"
+        }],
+        "ter-arrow-parens": false,
+        "no-else-after-return": false,
+        "no-increment-decrement": false,
+        "no-this-assignment": false
+    },
+    "jsRules": {
+        "max-line-length": {
+            "options": [100]
+        }
+    },
+    "linterOptions": {
+        "exclude": [
+            "src/constants/statics.ts"
+        ]
+    }
+}

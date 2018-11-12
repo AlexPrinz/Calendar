@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "target": "es5",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "paths": {
+        "~/*": ["./*"],
+        "+/*": ["./config/*"],
+        "@/*": ["./sample/*"],
+    },
+    "allowJs": true,
+    "types": ["node"],
+    // "noUnusedParameters": true,
+    // "noUnusedLocals": true
+  },
+  "exclude": [
+     "node_modules",
+ 	]
+}

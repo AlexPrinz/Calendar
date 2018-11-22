@@ -9,7 +9,7 @@ interface IWeekProps {
   onEventChange?: () => void;
   onEventClick?: () => void;
   onEventContextMenu?: () => void;
-  events: Event[];
+  events: Calendar.Event[];
 }
 
 interface IWeekState {

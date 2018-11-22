@@ -1,11 +1,12 @@
 import * as React from 'react';
+import Event from '../event';
 import * as theme from './theme.scss';
-
 
 interface IHourProps {
   onEventChange?: () => void;
   onEventClick?: () => void;
   onEventContextMenu?: () => void;
+  events: Calendar.Event[];
   time: Date;
 }
 
@@ -14,25 +15,25 @@ interface IHourState {
 
 export default class Hour extends React.Component<IHourProps, IHourState> {
 
-  getEvent() {/*
-  return map(this.props.events, (event) => {
-      const tmpDate = new Date(event.start);
+  getEvent() {
+    for (let i = 0; i < this.props.events.length; i ++) {
+      const event = this.props.events[i];
+      const tmpDate = new Date(event.start.getTime());
       tmpDate.setHours(tmpDate.getHours(), 0, 0, 0);
       if (tmpDate.getTime() === this.props.time.getTime()) {
         return (
-          <EventDiv
+          <Event
             event={event}
             onEventChange={this.props.onEventChange}
             onEventClick={this.props.onEventClick}
-            onContextMenu={this.props.onContextMenu}
+            onEventContextMenu={this.props.onEventContextMenu}
             time={this.props.time}
           />
         );
       } else {
         return undefined;
       }
-    });*/
-    return null;
+    }
   }
 
   render() {

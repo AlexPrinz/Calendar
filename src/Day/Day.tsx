@@ -5,7 +5,7 @@ import * as theme from './theme.scss';
 
 interface IDayProps {
   start: Date;
-  events: Event[];
+  events: Calendar.Event[];
   onEventChange?: () => void;
   onEventClick?: () => void;
   onEventContextMenu?: () => void;
@@ -15,30 +15,36 @@ interface IDayState {
 }
 
 export default class Day extends React.Component<IDayProps, IDayState> {
-/*
-  @computed get events( ) {
+
+  getEvents( ) {
     const tmp = [];
-    const start = new Date(this.props.start);
+    const start = new Date(this.props.start.getTime());
     start.setHours(0, 0, 0, 0);
-    const end = new Date(this.props.start);
+    const end = new Date(this.props.start.getTime());
     end.setHours(23, 59, 59, 99);
-    each(this.props.events, (event) => {
-      const eventTimeStart = new Date(event.start);
-      const eventTimeEnd = new Date(event.end);
-      const tmpEvent = cloneDeep(event);
-      if (event.start < end.getTime() && event.end > start.getTime()) {
-        if (event.start < start.getTime()) {
-          tmpEvent.start = start.getTime();
+    for (let i = 0; i < this.props.events.length; i++) {
+      const event = this.props.events[i];
+      const eventTimeStart = new Date(event.start.getTime());
+      const eventTimeEnd = new Date(event.end.getTime());
+      const tmpEvent: Calendar.Event = {
+        start: new Date(event.start.getTime()),
+        end: new Date(event.end.getTime()),
+        summary: event.summary,
+        description: event.description,
+      };
+      if (event.start.getTime() < end.getTime() && event.end.getTime() > start.getTime()) {
+        if (event.start.getTime() < start.getTime()) {
+          tmpEvent.start = new Date(start.getTime());
         }
-        if (event.end > end.getTime()) {
-          tmpEvent.end = end.getTime();
+        if (event.end.getTime() > end.getTime()) {
+          tmpEvent.end = new Date(end.getTime());
         }
         tmp.push(tmpEvent);
       }
-    });
+    }
     return tmp;
   }
-*/
+
   getHours() {
     const hours = [];
 
@@ -48,6 +54,7 @@ export default class Day extends React.Component<IDayProps, IDayState> {
       hours.push(
         <Hour
           key={`hour_${hour}`}
+          events={this.getEvents()}
           onEventChange={this.props.onEventChange}
           onEventClick={this.props.onEventClick}
           onEventContextMenu={this.props.onEventContextMenu}

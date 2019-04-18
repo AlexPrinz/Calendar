@@ -30,8 +30,16 @@ export default class DayHeader extends React.Component<IDayHeaderProps, IDayHead
     return (
       <div className={theme.day}>
         <div className={theme.header}>
-          <header className={classNames({ [theme.today]: this.props.today })}>{this.dayToText[date.getDay()]}</header>
-          <header className={classNames({ [theme.date]: true, [theme.today]: this.props.today })}>{date.getDate()}</header>
+          <header
+            className={classNames({ [theme.today]: this.props.today })}
+          >
+            {this.dayToText[date.getDay()]}
+          </header>
+          <header
+            className={classNames({ [theme.date]: true, [theme.today]: this.props.today })}
+          >
+            {date.getDate()}
+          </header>
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Week from '../src/week';
+import Calendar, { CalendarView }from '../src';
 
 interface ISamplePageProps {
 }
@@ -8,13 +8,17 @@ interface ISamplePageState {
 }
 
 export default class SamplePage extends React.Component<ISamplePageProps, ISamplePageState> {
-  render() {
+  ref: CalendarView;
+
+  render () {
     return(
       <div>
-        <Week
+        <button onClick = {() => { this.ref.nextPeriod(); }}> next </button>
+        <Calendar
+          getCalendarRef={ (calendar) => { this.ref = calendar; debugger; }}
           events={ [{
             start: new Date(Date.now()),
-            end: new Date(Date.now() + 60 * 60 * 3000),
+            end: new Date(Date.now() + 60 * 60 * 12000),
             summary: 'test',
             description: 'test',
           }]

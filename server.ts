@@ -7,4 +7,4 @@ new webpackDevServer(webpack(webpackConfig), {
   publicPath: webpackConfig.output.publicPath,
   hot: true,
   historyApiFallback: true,
-}).listen(8081, 'localhost');
+}).listen(8082, 'localhost');

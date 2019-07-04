@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { CalendarView, ICalendarViewProps } from '../CalendarView';
 import Day from '../Day';
 import DayHeader from '../Day/Header';
 import Time from '../Time';
@@ -13,12 +14,19 @@ interface IWeekProps {
 }
 
 interface IWeekState {
+  startDate: Date;
 }
 
-export default class Week extends React.Component<IWeekProps, IWeekState> {
+// export default class Week extends React.Component<IWeekProps, IWeekState> {
+export default class Week extends React.Component<
+  ICalendarViewProps, IWeekState
+> implements CalendarView  {
+
+  state = {
+    startDate: new Date(),
+  };
 
   todaysDate: Date = new Date( );
-  startDate: Date = new Date(Date.now());
 
   componentWillMount() {
     this.todaysDate = new Date(this.todaysDate.setHours(0, 0, 0, 0));
@@ -60,7 +68,7 @@ export default class Week extends React.Component<IWeekProps, IWeekState> {
 
   getDays() {
     const days = [];
-    let lastDayDate = this.setToMonday(this.startDate);
+    let lastDayDate = this.setToMonday(this.state.startDate);
     lastDayDate.setHours(0, 0, 0, 0);
     days.push(<Time/>);
     for (let day = 0; day < 7; day ++) {
@@ -81,7 +89,7 @@ export default class Week extends React.Component<IWeekProps, IWeekState> {
 
   getDayHeader() {
     const days = [];
-    let lastDayDate = this.setToMonday(this.startDate);
+    let lastDayDate = this.setToMonday(this.state.startDate);
     for (let day = 0; day < 7; day ++) {
       days.push(
         <DayHeader
@@ -107,24 +115,23 @@ export default class Week extends React.Component<IWeekProps, IWeekState> {
   }
 
   getPeriod(): {start: Date, end: Date} {
-    let end = new Date(this.startDate.getTime());
+    let end = new Date(this.state.startDate.getTime());
     end = this.addDays(end, 8);
     end.setMilliseconds(-1);
-    return { end, start: new Date(this.startDate.getTime()) };
+    return { end, start: new Date(this.state.startDate.getTime()) };
   }
 
-  addWeek() {
-    const tmp = this.addDays(this.startDate, 7);
-    this.startDate = new Date(tmp.getTime());
+  nextPeriod() {
+    const tmp = this.addDays(this.state.startDate, 7);
+    this.setState({ startDate: new Date(tmp.getTime()) });
     if (typeof this.props.periodChanged === 'function') {
       const { start, end } = this.getPeriod();
       this.props.periodChanged(start, end, this.monthToText[start.getMonth() + 1]);
     }
   }
-
-  removeWeek() {
-    const tmp = this.addDays(this.startDate, -7);
-    this.startDate = new Date(tmp.getTime());
+  previousPeriod() {
+    const tmp = this.addDays(this.state.startDate, -7);
+    this.setState({ startDate: new Date(tmp.getTime()) });
     if (typeof this.props.periodChanged === 'function') {
       const { start, end } = this.getPeriod();
       this.props.periodChanged(start, end, this.monthToText[start.getMonth() + 1]);
@@ -132,7 +139,7 @@ export default class Week extends React.Component<IWeekProps, IWeekState> {
   }
 
   render() {
-    const tmp = new Date(this.startDate.getTime());
+    const tmp = new Date(this.state.startDate.getTime());
     return (
       <div className={theme.week}>
        <div>

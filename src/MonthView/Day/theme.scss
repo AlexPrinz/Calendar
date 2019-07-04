@@ -1,0 +1,32 @@
+.day{
+  display: table-cell;
+  text-align: left;
+  width: 13.5%;
+  height: calc( 100% / var(--weeks-in-month) );
+  background-color: white;
+  border-left: 0.5px solid rgba(0, 0, 0, .2);
+  border-bottom: 0.5px solid rgba(0, 0, 0, .2);
+  font-size: 12px;
+  padding: 0px;
+  position: relative;
+}
+
+.otherMonth{
+  color: lightgray;
+}
+
+.today{
+  background: #1a73e8;
+  padding: 4px;
+  min-width: 14px;
+  width: fit-content;
+  border-radius: 14px;
+  color: white;
+  margin: auto;
+}
+
+
+.header{
+  text-align: center;
+  padding: 10px;
+}

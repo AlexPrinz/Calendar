@@ -1,0 +1,62 @@
+
+
+.event{
+  position: absolute;
+  background-color: #2196F3;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+  width: 100%;
+  border-radius: 4px;
+  z-index: 1;
+  color: white;
+  min-height: 16px;
+  cursor: pointer;
+  //transition-property: height;
+  //transition-duration: 0.3s;
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+  &> .dragHandle{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    position: absolute;
+    bottom: 0;
+    cursor: ns-resize;
+    width: 100%;
+    text-align: center;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  }
+}
+.event:hover{
+  //box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 8px 8px -2px rgba(0, 0, 0, .2), 0 8px 8px 0 rgba(0, 0, 0, .12);
+  &> .dragHandle{
+    opacity: 0.5;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+  }
+}
+
+
+
+.summary{
+  padding-left: 13px;
+  padding-top: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  width: calc(100% - 2 * 16px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description{
+  padding-left: 13px;
+  font-weight: lighter;
+  cursor: pointer;
+  width: calc(100% - 2 * 16px)
+}

@@ -1,10 +1,13 @@
 {
-  "name": "calendar",
-  "version": "0.0.0",
+  "name": "calendar-rc",
+  "version": "0.0.2",
   "description": "Calendar for React app",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "ts-node server.ts",
+    "build": "tsc",
+    "prepublish": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexander Prinz",
@@ -35,6 +38,7 @@
     "typescript": "^3.1.6",
     "typings-for-scss-modules-loader": "^1.5.1",
     "webpack": "^4.25.1",
+    "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.1.10"
   }
 }

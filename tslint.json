@@ -7,6 +7,7 @@
             "options": [100]
         },
         "one-variable-per-declaration": false,
+        "declaration": true,
         "no-duplicate-variable": [true, "check-parameters"],
         "no-empty": true,
         "no-for-in-array": true,

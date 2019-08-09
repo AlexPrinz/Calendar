@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CalendarView } from './CalendarView';
 import MonthView from './MonthView';
-import Week from './Week';
+import Week from './WeekView';
 
 interface ICalendarProps {
   getCalendarRef: (calendar: CalendarView) => void;
